@@ -1,17 +1,10 @@
-import { SafeAreaView , Text} from "react-native";
 
-const App= () => {
+import HomeScreen from './src/screens/HomeScreen';
 
-
-  
+const App = () => {
   return (
-    <SafeAreaView>
-
-    <Text>test</Text>
-     
-    </SafeAreaView>
+    <HomeScreen/>
   );
 };
-
 
 export default App;
