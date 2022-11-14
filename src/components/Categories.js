@@ -1,7 +1,10 @@
 import {View, Text, ScrollView , StyleSheet} from 'react-native';
 import React from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 const Categories = () => {
+  const navigation = useNavigation()
   const categories = [
     'Business',
     'Entertainment',
@@ -16,9 +19,11 @@ const Categories = () => {
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} >
     {
         categories.map((category,index)=>(
-            <View style={styles.container} key={index}>
+          <TouchableOpacity key={index} onPress={()=>navigation.navigate('GetNews',category)}>
+            <View style={styles.container} >
             <Text style={styles.text}>{category}</Text>
             </View>
+            </TouchableOpacity>
         ))
     }
     </ScrollView>
@@ -40,7 +45,8 @@ const styles = StyleSheet.create({
         borderRadius:10,
         borderWidth:1,
         padding:10,
-        borderColor:'black'
+        borderColor:'white',
+        color:'white'
     }
 })
 export default Categories;

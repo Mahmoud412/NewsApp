@@ -1,45 +1,55 @@
 import {View, Text, ScrollView, ActivityIndicator, Image, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Categories from './Categories';
+import {API_KEY} from '../config';
+import { GET } from '../Services/API';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const TopHeadline = () => {
   const [data, setData] = useState([]);
-  console.log(data);
-  const getNews = async () => {
-    try {
-      const response = await fetch(
-        'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=389c3dcdddda4256b23ee60a0a896607',
-      );
-      const json = await response.json();
-      setData(json.articles);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const getNews = async () => {
+      const response = await GET(
+        `/top-headlines?country=us&apiKey=${API_KEY}`,
+      );
+      setData(response.articles);
+    };
     getNews();
   }, []);
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
+    <Text style={styles.text}>Home</Text>
     <Categories/>
       {data.length === 0 ? <ActivityIndicator color='black'/> : 
       <ScrollView >
       {data.map((news , index)=>(
-        <View style={styles.container} key={index}>
+        <View style={styles.subContainer} key={index}>
           <Image  style={styles.image} source={{uri:`${news.urlToImage}`}}/>
           <Text style={styles.title}>{news.title}</Text>
         </View>
       ))}
       </ScrollView>
     }
-    </View>
+    </SafeAreaView>
   );
 };
 
 
 const styles = StyleSheet.create({
+
   container:{
+    backgroundColor:'black'
+  },
+
+  text:{
+    color:'white',
+    fontSize:16,
+    fontWeight:'bold',
+    textAlign:'center',
+    justifyContent:'center',
+    margin:5
+  },
+  subContainer:{
     margin:10,
   },
   image:{
@@ -51,7 +61,8 @@ const styles = StyleSheet.create({
   title:{
     textAlign:'center',
     fontSize:16,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    color:'white'
   }
 })
 export default TopHeadline;
