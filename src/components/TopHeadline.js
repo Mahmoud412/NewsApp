@@ -1,9 +1,10 @@
-import {View, Text, ScrollView, ActivityIndicator, Image, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, ActivityIndicator, Image, StyleSheet,SafeAreaView} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Categories from './Categories';
 import {API_KEY} from '../config';
 import { GET } from '../Services/API';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import styles from './TopHeadlineStyles';
 
 const TopHeadline = () => {
   const [data, setData] = useState([]);
@@ -18,7 +19,11 @@ const TopHeadline = () => {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-    <Text style={styles.text}>Home</Text>
+    <View style={styles.hederView}>
+    <Text style={styles.text}>Top News</Text>
+    <FontAwesome name={'trophy'} size={20} color='white'/>
+
+    </View>
     <Categories/>
       {data.length === 0 ? <ActivityIndicator color='black'/> : 
       <ScrollView >
@@ -35,34 +40,5 @@ const TopHeadline = () => {
 };
 
 
-const styles = StyleSheet.create({
 
-  container:{
-    backgroundColor:'black'
-  },
-
-  text:{
-    color:'white',
-    fontSize:16,
-    fontWeight:'bold',
-    textAlign:'center',
-    justifyContent:'center',
-    margin:5
-  },
-  subContainer:{
-    margin:10,
-  },
-  image:{
-    width:'100%' ,
-     height:250,
-     marginVertical:10,
-     
-  },
-  title:{
-    textAlign:'center',
-    fontSize:16,
-    fontWeight:'bold',
-    color:'white'
-  }
-})
 export default TopHeadline;

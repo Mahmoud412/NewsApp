@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {API_KEY} from '../config';
 import {GET} from '../Services/API';
+import styles from '../components/TopHeadlineStyles';
 const GetNews = () => {
   const navogation = useNavigation();
   const route = useRoute();
@@ -21,7 +22,7 @@ const GetNews = () => {
     getNews();
   }, []);
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       {data.map((news, index) => (
         <View key={index}>
           <Image style={styles.image} source={{uri: `${news.urlToImage}`}} />
@@ -32,13 +33,5 @@ const GetNews = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: 200,
-  },
-  title: {
-    fontSize: 16,
-  },
-});
+
 export default GetNews;
