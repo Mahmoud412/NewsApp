@@ -1,12 +1,14 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import {WebView} from 'react-native-webview'
+import { useRoute } from '@react-navigation/native'
 
-const webView = () => {
+const Web_View = () => {
+   const route = useRoute()
+    const url = route.params
+
   return (
-    <View>
-      <Text>webView</Text>
-    </View>
+    <WebView source={{uri:`${url}`}} />
   )
 }
 
-export default webView
+export default Web_View
