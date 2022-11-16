@@ -1,4 +1,4 @@
-import {View, Text, ScrollView, ActivityIndicator, Image, StyleSheet,SafeAreaView, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, ActivityIndicator, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Categories from './Categories';
 import {API_KEY} from '../config';
