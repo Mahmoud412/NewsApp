@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {API_KEY} from '../config';
+import {API_KEY} from '../../API_Key';
 import {GET} from '../Services/API';
 import styles from '../components/TopHeadlineStyles';
 const GetNews = () => {

@@ -1,7 +1,7 @@
 import {View, Text, ScrollView, ActivityIndicator, Image,SafeAreaView, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Categories from './Categories';
-import {API_KEY} from '../../config';
+import {API_KEY} from '../../API_Key';
 import { GET } from '../Services/API';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import styles from './TopHeadlineStyles';

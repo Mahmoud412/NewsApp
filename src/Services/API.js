@@ -1,4 +1,4 @@
-import { BASE_URL,API_KEY } from "../config";
+import { BASE_URL } from '../Services/config';
 
 
 export const GET = async (url) =>{
