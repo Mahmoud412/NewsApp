@@ -17,3 +17,5 @@
 - react-native-gesture-handler
 - react-native-vector-icons
 - react-native-webview
+- News API
+- react native fetch
