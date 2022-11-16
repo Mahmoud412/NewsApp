@@ -63,5 +63,6 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 
+config.js
 
 testfile.js
